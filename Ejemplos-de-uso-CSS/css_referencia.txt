@@ -1,0 +1,657 @@
+=======================================================
+  REFERENCIA COMPLETA DE PROPIEDADES CSS
+  Explicación de uso por categorías
+=======================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. TEXTO Y FUENTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+font-family
+  Define la fuente del texto. Se pueden poner varias como respaldo.
+  Ejemplo: font-family: 'Arial', sans-serif;
+
+font-size
+  Tamaño de la fuente. Puede usarse en px, em, rem, %, vw, etc.
+  Ejemplo: font-size: 16px;
+
+font-weight
+  Grosor de la fuente. Valores: 100 a 900, o normal/bold.
+  Ejemplo: font-weight: 700;
+
+font-style
+  Estilo de la fuente: normal, italic o oblique.
+  Ejemplo: font-style: italic;
+
+font-variant
+  Permite mostrar texto en versalitas (small-caps).
+  Ejemplo: font-variant: small-caps;
+
+font-stretch
+  Estira o condensa la fuente si la familia lo soporta.
+  Ejemplo: font-stretch: condensed;
+
+line-height
+  Altura de cada línea de texto. Mejora la legibilidad.
+  Ejemplo: line-height: 1.6;
+
+letter-spacing
+  Espacio entre caracteres individuales.
+  Ejemplo: letter-spacing: 0.05em;
+
+word-spacing
+  Espacio entre palabras.
+  Ejemplo: word-spacing: 4px;
+
+text-align
+  Alineación horizontal del texto: left, right, center, justify.
+  Ejemplo: text-align: center;
+
+text-decoration
+  Agrega líneas al texto: underline, overline, line-through, none.
+  Ejemplo: text-decoration: underline;
+
+text-transform
+  Cambia las mayúsculas/minúsculas: uppercase, lowercase, capitalize.
+  Ejemplo: text-transform: uppercase;
+
+text-indent
+  Sangría de la primera línea de un párrafo.
+  Ejemplo: text-indent: 2rem;
+
+text-shadow
+  Sombra en el texto. Valores: X Y desenfoque color.
+  Ejemplo: text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+text-overflow
+  Qué mostrar cuando el texto desborda: ellipsis o clip.
+  Ejemplo: text-overflow: ellipsis;
+
+white-space
+  Controla cómo se maneja el espacio en blanco y saltos de línea.
+  Ejemplo: white-space: nowrap;
+
+word-break
+  Define cómo se rompen las palabras largas al llegar al borde.
+  Ejemplo: word-break: break-all;
+
+word-wrap / overflow-wrap
+  Permite que palabras largas se dividan para no desbordar.
+  Ejemplo: overflow-wrap: break-word;
+
+direction
+  Dirección del texto: ltr (izquierda a derecha) o rtl.
+  Ejemplo: direction: rtl;
+
+unicode-bidi
+  Controla el manejo bidireccional del texto junto con direction.
+  Ejemplo: unicode-bidi: embed;
+
+writing-mode
+  Orientación del texto: horizontal o vertical.
+  Ejemplo: writing-mode: vertical-rl;
+
+text-rendering
+  Indica al navegador cómo optimizar el renderizado del texto.
+  Ejemplo: text-rendering: optimizeLegibility;
+
+font-display
+  Controla cómo se muestra la fuente mientras carga (en @font-face).
+  Ejemplo: font-display: swap;
+
+font-size-adjust
+  Mantiene la legibilidad ajustando el tamaño si cambia la fuente.
+  Ejemplo: font-size-adjust: 0.5;
+
+tab-size
+  Tamaño visual de un carácter de tabulación.
+  Ejemplo: tab-size: 4;
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  2. COLOR Y FONDO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+color
+  Color del texto del elemento.
+  Ejemplo: color: #333;
+
+background
+  Propiedad abreviada para todas las propiedades de fondo.
+  Ejemplo: background: #fff url('img.png') no-repeat center/cover;
+
+background-color
+  Color sólido de fondo del elemento.
+  Ejemplo: background-color: #f0f0f0;
+
+background-image
+  Imagen o gradiente como fondo.
+  Ejemplo: background-image: url('fondo.jpg');
+
+background-position
+  Posición de la imagen de fondo.
+  Ejemplo: background-position: center top;
+
+background-size
+  Tamaño de la imagen de fondo: cover, contain o medidas.
+  Ejemplo: background-size: cover;
+
+background-repeat
+  Si la imagen se repite: repeat, no-repeat, repeat-x, repeat-y.
+  Ejemplo: background-repeat: no-repeat;
+
+background-attachment
+  Si el fondo se desplaza con el scroll o queda fijo.
+  Ejemplo: background-attachment: fixed;
+
+background-origin
+  Define desde dónde se posiciona la imagen de fondo.
+  Ejemplo: background-origin: content-box;
+
+background-clip
+  Hasta dónde llega el fondo del elemento.
+  Ejemplo: background-clip: text;
+
+background-blend-mode
+  Modo de fusión entre capas de fondo.
+  Ejemplo: background-blend-mode: multiply;
+
+opacity
+  Transparencia del elemento. 0 = invisible, 1 = opaco.
+  Ejemplo: opacity: 0.5;
+
+mix-blend-mode
+  Cómo se fusiona visualmente el elemento con lo que hay detrás.
+  Ejemplo: mix-blend-mode: overlay;
+
+isolation
+  Crea un nuevo contexto de apilamiento para mix-blend-mode.
+  Ejemplo: isolation: isolate;
+
+filter
+  Aplica efectos visuales: blur, brightness, contrast, grayscale, etc.
+  Ejemplo: filter: blur(4px) brightness(1.2);
+
+backdrop-filter
+  Aplica filtros al área detrás del elemento (requiere fondo semitransparente).
+  Ejemplo: backdrop-filter: blur(8px);
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  3. CAJA (BOX MODEL)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+width
+  Ancho del elemento.
+  Ejemplo: width: 300px;
+
+height
+  Alto del elemento.
+  Ejemplo: height: 200px;
+
+min-width
+  Ancho mínimo. El elemento no se encogerá más de este valor.
+  Ejemplo: min-width: 200px;
+
+max-width
+  Ancho máximo. El elemento no crecerá más de este valor.
+  Ejemplo: max-width: 1200px;
+
+min-height
+  Altura mínima del elemento.
+  Ejemplo: min-height: 100px;
+
+max-height
+  Altura máxima del elemento.
+  Ejemplo: max-height: 500px;
+
+margin
+  Espacio exterior del elemento (fuera del borde).
+  Ejemplo: margin: 1rem auto;
+
+margin-top / margin-right / margin-bottom / margin-left
+  Margen en cada lado por separado.
+  Ejemplo: margin-top: 20px;
+
+padding
+  Espacio interior del elemento (entre contenido y borde).
+  Ejemplo: padding: 1rem 2rem;
+
+padding-top / padding-right / padding-bottom / padding-left
+  Padding en cada lado por separado.
+  Ejemplo: padding-left: 16px;
+
+box-sizing
+  Define si width/height incluyen padding y borde.
+  border-box es la opción más práctica.
+  Ejemplo: box-sizing: border-box;
+
+overflow
+  Qué hacer si el contenido desborda: visible, hidden, scroll, auto.
+  Ejemplo: overflow: hidden;
+
+overflow-x / overflow-y
+  Control del desbordamiento horizontal o vertical por separado.
+  Ejemplo: overflow-x: auto;
+
+border
+  Propiedad abreviada para el borde: grosor estilo color.
+  Ejemplo: border: 1px solid #ccc;
+
+border-width
+  Grosor del borde.
+  Ejemplo: border-width: 2px;
+
+border-style
+  Estilo del borde: solid, dashed, dotted, none, etc.
+  Ejemplo: border-style: dashed;
+
+border-color
+  Color del borde.
+  Ejemplo: border-color: red;
+
+border-radius
+  Redondea las esquinas del elemento.
+  Ejemplo: border-radius: 8px;
+
+outline
+  Contorno exterior al borde, no afecta el layout.
+  Ejemplo: outline: 2px solid blue;
+
+outline-width / outline-style / outline-color
+  Partes individuales del outline.
+  Ejemplo: outline-color: orange;
+
+outline-offset
+  Distancia entre el outline y el borde del elemento.
+  Ejemplo: outline-offset: 4px;
+
+box-shadow
+  Sombra alrededor del elemento. Valores: X Y desenfoque expansión color.
+  Ejemplo: box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  4. FLEXBOX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+display: flex
+  Activa el modo flexbox en el contenedor.
+  Ejemplo: display: flex;
+
+flex-direction
+  Dirección principal: row (horizontal) o column (vertical).
+  Ejemplo: flex-direction: column;
+
+flex-wrap
+  Si los hijos se envuelven a la siguiente línea o no.
+  Ejemplo: flex-wrap: wrap;
+
+flex-flow
+  Abreviatura de flex-direction y flex-wrap juntos.
+  Ejemplo: flex-flow: row wrap;
+
+justify-content
+  Alineación en el eje principal: flex-start, center, space-between, etc.
+  Ejemplo: justify-content: space-between;
+
+align-items
+  Alineación en el eje cruzado: flex-start, center, stretch, etc.
+  Ejemplo: align-items: center;
+
+align-content
+  Alineación de múltiples líneas cuando hay flex-wrap.
+  Ejemplo: align-content: space-around;
+
+align-self
+  Alineación individual de un hijo en el eje cruzado.
+  Ejemplo: align-self: flex-end;
+
+flex
+  Abreviatura de flex-grow, flex-shrink y flex-basis.
+  Ejemplo: flex: 1 1 auto;
+
+flex-grow
+  Cuánto puede crecer un hijo para ocupar espacio libre.
+  Ejemplo: flex-grow: 2;
+
+flex-shrink
+  Cuánto puede encogerse un hijo si no hay espacio.
+  Ejemplo: flex-shrink: 0;
+
+flex-basis
+  Tamaño inicial del hijo antes de crecer o encoger.
+  Ejemplo: flex-basis: 200px;
+
+order
+  Orden visual del hijo dentro del contenedor.
+  Ejemplo: order: 3;
+
+gap
+  Espacio entre hijos del contenedor flex o grid.
+  Ejemplo: gap: 1rem;
+
+row-gap
+  Espacio solo entre filas.
+  Ejemplo: row-gap: 20px;
+
+column-gap
+  Espacio solo entre columnas.
+  Ejemplo: column-gap: 16px;
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  5. GRID
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+grid
+  Propiedad abreviada para todas las propiedades de grid.
+  Ejemplo: grid: auto / repeat(3, 1fr);
+
+grid-template
+  Abreviatura de filas, columnas y áreas.
+  Ejemplo: grid-template: 100px 1fr / 200px 1fr;
+
+grid-template-columns
+  Define el número y tamaño de las columnas.
+  Ejemplo: grid-template-columns: repeat(3, 1fr);
+
+grid-template-rows
+  Define el número y tamaño de las filas.
+  Ejemplo: grid-template-rows: 80px auto 60px;
+
+grid-template-areas
+  Asigna nombres a áreas del grid para posicionar elementos.
+  Ejemplo: grid-template-areas: "header header" "sidebar main";
+
+grid-area
+  Asigna un hijo a un área nombrada del grid.
+  Ejemplo: grid-area: sidebar;
+
+grid-column
+  En qué columnas se extiende el hijo (inicio / fin).
+  Ejemplo: grid-column: 1 / 3;
+
+grid-row
+  En qué filas se extiende el hijo (inicio / fin).
+  Ejemplo: grid-row: 2 / 4;
+
+grid-auto-columns
+  Tamaño de columnas creadas automáticamente.
+  Ejemplo: grid-auto-columns: 150px;
+
+grid-auto-rows
+  Tamaño de filas creadas automáticamente.
+  Ejemplo: grid-auto-rows: minmax(100px, auto);
+
+grid-auto-flow
+  Cómo se colocan los hijos automáticamente: row, column o dense.
+  Ejemplo: grid-auto-flow: column;
+
+justify-items
+  Alineación horizontal de todos los hijos dentro de su celda.
+  Ejemplo: justify-items: center;
+
+place-items
+  Abreviatura de align-items y justify-items.
+  Ejemplo: place-items: center;
+
+place-content
+  Abreviatura de align-content y justify-content en grid.
+  Ejemplo: place-content: center;
+
+place-self
+  Abreviatura de align-self y justify-self para un hijo.
+  Ejemplo: place-self: end center;
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  6. POSICIONAMIENTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+position
+  Tipo de posicionamiento: static, relative, absolute, fixed, sticky.
+  Ejemplo: position: absolute;
+
+top / right / bottom / left
+  Desplazamiento del elemento desde cada borde de su contenedor.
+  Ejemplo: top: 0; left: 0;
+
+z-index
+  Capa de apilamiento. Mayor valor = más al frente.
+  Ejemplo: z-index: 10;
+
+float
+  Hace que el elemento flote a la izquierda o derecha.
+  Ejemplo: float: left;
+
+clear
+  Impide que el elemento se coloque al lado de un flotante.
+  Ejemplo: clear: both;
+
+clip
+  Recorta la región visible del elemento (solo para position:absolute).
+  Ejemplo: clip: rect(0, 100px, 100px, 0);
+
+clip-path
+  Recorta la forma visible del elemento con figuras geométricas.
+  Ejemplo: clip-path: circle(50%);
+
+visibility
+  Muestra u oculta el elemento sin afectar el espacio que ocupa.
+  Ejemplo: visibility: hidden;
+
+display
+  Tipo de caja del elemento: block, inline, flex, grid, none, etc.
+  Ejemplo: display: none;
+
+transform
+  Aplica transformaciones: rotate, scale, translate, skew.
+  Ejemplo: transform: rotate(45deg) scale(1.2);
+
+transform-origin
+  Punto desde donde se aplica la transformación.
+  Ejemplo: transform-origin: top left;
+
+perspective
+  Distancia del observador en transformaciones 3D.
+  Ejemplo: perspective: 800px;
+
+perspective-origin
+  Punto de vista del observador para perspectiva 3D.
+  Ejemplo: perspective-origin: center center;
+
+backface-visibility
+  Si la cara trasera de un elemento 3D es visible o no.
+  Ejemplo: backface-visibility: hidden;
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  7. ANIMACIÓN Y TRANSICIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+transition
+  Abreviatura para animar cambios de propiedad suavemente.
+  Ejemplo: transition: all 0.3s ease;
+
+transition-property
+  Qué propiedad se anima.
+  Ejemplo: transition-property: background-color;
+
+transition-duration
+  Cuánto tarda la transición.
+  Ejemplo: transition-duration: 0.5s;
+
+transition-timing-function
+  Curva de velocidad: ease, linear, ease-in, ease-out, cubic-bezier.
+  Ejemplo: transition-timing-function: ease-in-out;
+
+transition-delay
+  Tiempo de espera antes de que empiece la transición.
+  Ejemplo: transition-delay: 0.2s;
+
+animation
+  Abreviatura de todas las propiedades de animación.
+  Ejemplo: animation: girar 1s linear infinite;
+
+animation-name
+  Nombre del @keyframes que se usará.
+  Ejemplo: animation-name: girar;
+
+animation-duration
+  Duración de un ciclo de la animación.
+  Ejemplo: animation-duration: 2s;
+
+animation-timing-function
+  Curva de velocidad de la animación.
+  Ejemplo: animation-timing-function: ease-in-out;
+
+animation-delay
+  Tiempo de espera antes de que empiece la animación.
+  Ejemplo: animation-delay: 0.5s;
+
+animation-iteration-count
+  Cuántas veces se repite: número o infinite.
+  Ejemplo: animation-iteration-count: infinite;
+
+animation-direction
+  Si la animación va hacia adelante, atrás o alternada.
+  Ejemplo: animation-direction: alternate;
+
+animation-fill-mode
+  Estado del elemento antes/después de la animación: forwards, backwards.
+  Ejemplo: animation-fill-mode: forwards;
+
+animation-play-state
+  Pausa o reanuda la animación: running o paused.
+  Ejemplo: animation-play-state: paused;
+
+@keyframes
+  Define los estados de la animación en porcentajes (0% a 100%).
+  Ejemplo: @keyframes girar { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+
+will-change
+  Avisa al navegador qué propiedad cambiará para optimizar el rendimiento.
+  Ejemplo: will-change: transform;
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  8. TABLAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+border-collapse
+  Une los bordes de las celdas en uno solo (collapse) o los separa (separate).
+  Ejemplo: border-collapse: collapse;
+
+border-spacing
+  Espacio entre celdas cuando border-collapse es separate.
+  Ejemplo: border-spacing: 8px;
+
+caption-side
+  Posición del título de la tabla: top o bottom.
+  Ejemplo: caption-side: bottom;
+
+empty-cells
+  Si se muestran bordes en celdas vacías: show o hide.
+  Ejemplo: empty-cells: hide;
+
+table-layout
+  Cómo se calculan los anchos de columna: auto o fixed.
+  Ejemplo: table-layout: fixed;
+
+vertical-align
+  Alineación vertical del contenido de una celda.
+  Ejemplo: vertical-align: middle;
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  9. LISTAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+list-style
+  Abreviatura para tipo, imagen y posición del marcador.
+  Ejemplo: list-style: square inside;
+
+list-style-type
+  Tipo de marcador: disc, circle, square, decimal, none, etc.
+  Ejemplo: list-style-type: decimal;
+
+list-style-image
+  Imagen personalizada como marcador de lista.
+  Ejemplo: list-style-image: url('punto.png');
+
+list-style-position
+  Si el marcador está dentro (inside) o fuera (outside) del texto.
+  Ejemplo: list-style-position: inside;
+
+counter-reset
+  Reinicia o crea un contador CSS con un valor inicial.
+  Ejemplo: counter-reset: mi-contador 0;
+
+counter-increment
+  Incrementa el valor del contador CSS.
+  Ejemplo: counter-increment: mi-contador;
+
+content
+  Inserta contenido generado (usado con ::before y ::after).
+  Ejemplo: content: counter(mi-contador) ". ";
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  10. UI E INTERACCIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cursor
+  Tipo de cursor al pasar sobre el elemento: pointer, crosshair, etc.
+  Ejemplo: cursor: pointer;
+
+pointer-events
+  Si el elemento puede recibir eventos de ratón o no.
+  Ejemplo: pointer-events: none;
+
+user-select
+  Si el usuario puede seleccionar el texto del elemento.
+  Ejemplo: user-select: none;
+
+resize
+  Si el usuario puede redimensionar el elemento: both, horizontal, vertical.
+  Ejemplo: resize: both;
+
+appearance
+  Quita o establece el estilo visual nativo del navegador.
+  Ejemplo: appearance: none;
+
+caret-color
+  Color del cursor de texto en campos de entrada.
+  Ejemplo: caret-color: blue;
+
+scroll-behavior
+  Si el scroll de la página es suave o instantáneo.
+  Ejemplo: scroll-behavior: smooth;
+
+scroll-snap-type
+  Activa el ajuste de scroll a puntos definidos.
+  Ejemplo: scroll-snap-type: x mandatory;
+
+scroll-snap-align
+  Punto de alineación del hijo al hacer snap.
+  Ejemplo: scroll-snap-align: start;
+
+overscroll-behavior
+  Qué pasa al llegar al límite del scroll: auto, contain, none.
+  Ejemplo: overscroll-behavior: contain;
+
+touch-action
+  Controla qué gestos táctiles maneja el navegador vs. JS.
+  Ejemplo: touch-action: pan-y;
+
+accent-color
+  Color de acentuación para elementos de formulario nativos.
+  Ejemplo: accent-color: #6200ea;
+
+
+=======================================================
+  FIN DEL DOCUMENTO
+  Total: ~100 propiedades CSS explicadas
+=======================================================

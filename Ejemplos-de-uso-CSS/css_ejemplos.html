@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejemplos CSS por categoría</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f0;
+      color: #222;
+    }
+
+    /* ── Nav lateral ── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 220px;
+      height: 100vh;
+      background: #1a1a1a;
+      overflow-y: auto;
+      padding: 1.5rem 0;
+      z-index: 100;
+    }
+    .sidebar h2 {
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #666;
+      padding: 0 1.25rem 1rem;
+    }
+    .sidebar a {
+      display: block;
+      padding: .45rem 1.25rem;
+      font-size: 13px;
+      color: #aaa;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: all .15s;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      color: #fff;
+      border-left-color: #c9a96e;
+      background: rgba(255,255,255,.04);
+    }
+
+    /* ── Contenido principal ── */
+    main {
+      margin-left: 220px;
+      padding: 2.5rem 2rem;
+      max-width: 960px;
+    }
+
+    main > h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+    main > p.intro {
+      color: #666;
+      margin-bottom: 3rem;
+      font-size: .95rem;
+    }
+
+    /* ── Secciones ── */
+    section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 2rem;
+    }
+    section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: .5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    section h2 .badge {
+      font-size: 11px;
+      background: #1a1a1a;
+      color: #c9a96e;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 400;
+      letter-spacing: .05em;
+    }
+
+    /* ── Tarjeta de ejemplo ── */
+    .demo-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .demo-card h3 {
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #999;
+      padding: .7rem 1.25rem;
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+    }
+    .demo-body {
+      padding: 1.5rem 1.25rem;
+    }
+    .code {
+      background: #1a1a1a;
+      color: #c9a96e;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      padding: .75rem 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* ════════════════════════════════
+       SECCIÓN 1 — TEXTO Y FUENTES
+    ════════════════════════════════ */
+    .txt-demo-1 { font-family: Georgia, serif; font-size: 1.3rem; font-weight: 700; letter-spacing: .05em; }
+    .txt-demo-2 { font-style: italic; font-size: 1.1rem; line-height: 1.9; color: #444; }
+    .txt-demo-3 { text-align: justify; font-size: .95rem; color: #555; max-width: 500px; }
+    .txt-demo-4 { text-decoration: line-through; color: #e74c3c; margin-right: 1rem; }
+    .txt-demo-5 { text-decoration: underline wavy #3498db; }
+    .txt-demo-6 { text-transform: uppercase; letter-spacing: .2em; font-size: .85rem; }
+    .txt-demo-7 { text-shadow: 2px 2px 0 #c9a96e, 4px 4px 0 rgba(0,0,0,.1); font-size: 1.5rem; font-weight: 700; }
+    .txt-demo-8 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px; color: #333; border: 1px solid #ddd; padding: 4px 8px; border-radius: 4px; }
+    .txt-demo-9 { writing-mode: vertical-rl; text-orientation: mixed; font-size: 1rem; height: 140px; letter-spacing: .1em; color: #333; }
+
+    /* ════════════════════════════════
+       SECCIÓN 2 — COLOR Y FONDO
+    ════════════════════════════════ */
+    .bg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .bg-box { height: 80px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; }
+    .bg-solid { background-color: #3498db; color: #fff; }
+    .bg-gradient { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
+    .bg-img {
+      background-image: repeating-linear-gradient(45deg, #f0f0f0 0px, #f0f0f0 10px, #e0e0e0 10px, #e0e0e0 20px);
+      background-size: 40px 40px;
+      color: #333;
+    }
+    .bg-filter { background-color: #e74c3c; filter: saturate(0.3) brightness(1.2); color: #333; }
+    .bg-opacity { background-color: #2ecc71; opacity: 0.4; color: #000; }
+    .bg-blend { background-color: #3498db; background-image: linear-gradient(#e74c3c, #e74c3c); background-blend-mode: multiply; color: #fff; }
+
+    /* ════════════════════════════════
+       SECCIÓN 3 — BOX MODEL
+    ════════════════════════════════ */
+    .box-demo { display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-start; }
+    .box-a { width: 120px; height: 80px; background: #3498db; color: #fff; font-size: 12px; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .box-b { width: 120px; height: 80px; background: #3498db; color: #fff; font-size: 12px; padding: 12px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .box-c { width: 120px; height: 80px; background: #3498db; color: #fff; font-size: 12px; margin: 12px; display: flex; align-items: center; justify-content: center; }
+    .box-border { width: 160px; height: 80px; background: #fff; border: 3px dashed #e74c3c; border-radius: 12px; font-size: 12px; display: flex; align-items: center; justify-content: center; color: #e74c3c; }
+    .box-shadow-demo { width: 160px; height: 80px; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.8); font-size: 12px; display: flex; align-items: center; justify-content: center; border-radius: 8px; }
+    .box-overflow { width: 160px; height: 60px; background: #fafafa; border: 1px solid #ddd; overflow: hidden; font-size: 12px; padding: 6px; border-radius: 4px; }
+
+    /* ════════════════════════════════
+       SECCIÓN 4 — FLEXBOX
+    ════════════════════════════════ */
+    .flex-container {
+      display: flex;
+      background: #f0f4ff;
+      border: 1px solid #c5d3f0;
+      border-radius: 8px;
+      padding: .75rem;
+      gap: 8px;
+      margin-bottom: .75rem;
+    }
+    .flex-item {
+      background: #4a6cf7;
+      color: #fff;
+      padding: .5rem .75rem;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .flex-grow-demo .flex-item:nth-child(2) { flex-grow: 1; background: #764ba2; }
+    .flex-wrap-demo { flex-wrap: wrap; }
+    .flex-wrap-demo .flex-item { flex: 0 0 100px; }
+    .flex-center { justify-content: center; align-items: center; height: 80px; }
+    .flex-between { justify-content: space-between; align-items: center; }
+
+    /* ════════════════════════════════
+       SECCIÓN 5 — GRID
+    ════════════════════════════════ */
+    .grid-base {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: .75rem;
+    }
+    .grid-cell {
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      color: #2e7d32;
+      padding: .6rem;
+      border-radius: 5px;
+      font-size: 13px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .grid-span { grid-column: 1 / 3; background: #c8e6c9; }
+    .grid-areas-demo {
+      display: grid;
+      grid-template-areas: "hdr hdr" "sdb cnt" "ftr ftr";
+      grid-template-columns: 120px 1fr;
+      gap: 6px;
+      margin-bottom: .75rem;
+    }
+    .g-hdr { grid-area: hdr; background: #1565c0; color: #fff; padding: .5rem; border-radius: 5px; text-align: center; font-size: 13px; }
+    .g-sdb { grid-area: sdb; background: #1976d2; color: #fff; padding: .5rem; border-radius: 5px; text-align: center; font-size: 13px; }
+    .g-cnt { grid-area: cnt; background: #42a5f5; color: #fff; padding: .5rem; border-radius: 5px; text-align: center; font-size: 13px; }
+    .g-ftr { grid-area: ftr; background: #0d47a1; color: #fff; padding: .5rem; border-radius: 5px; text-align: center; font-size: 13px; }
+
+    /* ════════════════════════════════
+       SECCIÓN 6 — POSICIONAMIENTO
+    ════════════════════════════════ */
+    .pos-container {
+      position: relative;
+      height: 140px;
+      background: #f9f0e6;
+      border: 1px solid #e0c9a6;
+      border-radius: 8px;
+      margin-bottom: .75rem;
+    }
+    .pos-static  { position: static;   background: #ccc; color: #333; padding: 6px 12px; border-radius: 4px; font-size: 12px; display: inline-block; margin: 8px; }
+    .pos-rel     { position: relative; top: 10px; left: 20px; background: #3498db; color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 12px; display: inline-block; }
+    .pos-abs     { position: absolute; bottom: 10px; right: 10px; background: #e74c3c; color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 12px; }
+    .pos-z       { position: absolute; top: 10px; left: 60px; background: #2ecc71; color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 12px; z-index: 2; }
+    .pos-z2      { position: absolute; top: 16px; left: 80px; background: #9b59b6; color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 12px; z-index: 1; }
+    .transform-demo {
+      display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;
+    }
+    .tr-box { width: 80px; height: 80px; background: #3498db; color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; border-radius: 4px; text-align: center; }
+    .tr-rotate  { transform: rotate(20deg); }
+    .tr-scale   { transform: scale(1.3); }
+    .tr-skew    { transform: skewX(15deg); }
+    .tr-translate { transform: translate(10px, -10px); }
+
+    /* ════════════════════════════════
+       SECCIÓN 7 — ANIMACIÓN
+    ════════════════════════════════ */
+    @keyframes girar    { to { transform: rotate(360deg); } }
+    @keyframes pulsar   { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    @keyframes deslizar { from { transform: translateX(-30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes colorear { 0% { background: #3498db; } 50% { background: #e74c3c; } 100% { background: #2ecc71; } }
+
+    .anim-grid { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+    .anim-box { width: 70px; height: 70px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; text-align: center; font-weight: 500; }
+    .anim-girar   { background: #3498db; animation: girar 2s linear infinite; }
+    .anim-pulsar  { background: #e74c3c; animation: pulsar 1s ease-in-out infinite; }
+    .anim-deslizar{ background: #2ecc71; animation: deslizar .8s ease forwards; }
+    .anim-colorear{ background: #3498db; animation: colorear 3s ease-in-out infinite; }
+
+    .trans-demo { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .trans-btn {
+      padding: .6rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .trans-bg   { background: #3498db; color: #fff; transition: background .3s ease; }
+    .trans-bg:hover { background: #e74c3c; }
+    .trans-size { background: #9b59b6; color: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+    .trans-size:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(155,89,182,.4); }
+    .trans-all  { background: #1a1a1a; color: #c9a96e; transition: all .3s cubic-bezier(.34,1.56,.64,1); }
+    .trans-all:hover { background: #c9a96e; color: #1a1a1a; transform: translateY(-3px); }
+
+    /* ════════════════════════════════
+       SECCIÓN 8 — TABLAS
+    ════════════════════════════════ */
+    .tabla-demo {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 1rem;
+    }
+    .tabla-demo caption { caption-side: top; font-size: 13px; font-weight: 600; color: #666; margin-bottom: .5rem; }
+    .tabla-demo th { background: #1a1a1a; color: #c9a96e; padding: .6rem 1rem; text-align: left; font-weight: 500; }
+    .tabla-demo td { padding: .55rem 1rem; border-bottom: 1px solid #eee; vertical-align: middle; }
+    .tabla-demo tr:hover td { background: #f9f9f6; }
+    .tabla-demo tr:last-child td { border-bottom: none; }
+
+    .tabla-separated {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 6px;
+      font-size: 14px;
+    }
+    .tabla-separated th { background: #3498db; color: #fff; padding: .5rem .75rem; border-radius: 4px; }
+    .tabla-separated td { background: #f0f8ff; padding: .5rem .75rem; border-radius: 4px; text-align: center; }
+
+    /* ════════════════════════════════
+       SECCIÓN 9 — LISTAS
+    ════════════════════════════════ */
+    .listas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .lista-box { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 1rem; }
+    .lista-box h4 { font-size: 12px; color: #999; text-transform: uppercase; letter-spacing: .1em; margin-bottom: .6rem; }
+    .lst-disc    { list-style-type: disc; padding-left: 1.2rem; font-size: 14px; }
+    .lst-circle  { list-style-type: circle; padding-left: 1.2rem; font-size: 14px; }
+    .lst-square  { list-style-type: square; padding-left: 1.2rem; font-size: 14px; color: #e74c3c; }
+    .lst-decimal { list-style-type: decimal; padding-left: 1.2rem; font-size: 14px; }
+    .lst-alpha   { list-style-type: lower-alpha; padding-left: 1.2rem; font-size: 14px; }
+    .lst-roman   { list-style-type: upper-roman; padding-left: 1.2rem; font-size: 14px; }
+    .lst-none    { list-style: none; padding: 0; font-size: 14px; }
+    .lst-none li { padding: .3rem 0; border-bottom: 1px solid #eee; }
+    .lst-none li::before { content: "→ "; color: #3498db; font-weight: 700; }
+
+    .lst-counter { list-style: none; padding: 0; counter-reset: mi-lista; font-size: 14px; }
+    .lst-counter li { counter-increment: mi-lista; padding: .3rem 0; display: flex; align-items: center; gap: .5rem; }
+    .lst-counter li::before {
+      content: counter(mi-lista);
+      background: #c9a96e;
+      color: #fff;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ════════════════════════════════
+       SECCIÓN 10 — UI E INTERACCIÓN
+    ════════════════════════════════ */
+    .ui-grid { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start; }
+    .ui-card { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 1rem; font-size: 13px; }
+    .cursor-hand { cursor: pointer; background: #3498db; color: #fff; padding: .4rem .9rem; border-radius: 5px; display: inline-block; }
+    .cursor-cross { cursor: crosshair; background: #e74c3c; color: #fff; padding: .4rem .9rem; border-radius: 5px; display: inline-block; }
+    .cursor-help { cursor: help; background: #9b59b6; color: #fff; padding: .4rem .9rem; border-radius: 5px; display: inline-block; }
+    .no-select { user-select: none; background: #f0f0f0; padding: .4rem .9rem; border-radius: 5px; color: #666; display: inline-block; border: 1px dashed #ccc; }
+    .resize-box { resize: both; overflow: auto; width: 180px; height: 70px; border: 2px solid #3498db; border-radius: 6px; padding: .5rem; font-size: 12px; color: #666; }
+    .accent-input { accent-color: #e74c3c; display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+    .caret-input { caret-color: #e74c3c; border: 1px solid #ccc; padding: .4rem .7rem; border-radius: 5px; outline: none; font-size: 13px; width: 180px; }
+    .caret-input:focus { border-color: #3498db; }
+
+    /* ── Footer ── */
+    footer {
+      margin-left: 220px;
+      padding: 2rem;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      border-top: 1px solid #ddd;
+    }
+
+    /* ── Scroll suave y highlight ── */
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 700px) {
+      .sidebar { display: none; }
+      main, footer { margin-left: 0; }
+      .listas-grid, .bg-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navegación lateral ── -->
+<nav class="sidebar">
+  <h2>Categorías</h2>
+  <a href="#texto">1. Texto y fuentes</a>
+  <a href="#color">2. Color y fondo</a>
+  <a href="#boxmodel">3. Box model</a>
+  <a href="#flexbox">4. Flexbox</a>
+  <a href="#grid">5. Grid</a>
+  <a href="#posicion">6. Posicionamiento</a>
+  <a href="#animacion">7. Animación</a>
+  <a href="#tablas">8. Tablas</a>
+  <a href="#listas">9. Listas</a>
+  <a href="#ui">10. UI e interacción</a>
+</nav>
+
+<main>
+  <h1>CSS — Ejemplos prácticos</h1>
+  <p class="intro">100 propiedades CSS demostradas con ejemplos visuales, divididas en 10 categorías.</p>
+
+
+  <!-- ════════════ 1. TEXTO ════════════ -->
+  <section id="texto">
+    <h2>Texto y fuentes <span class="badge">26 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>font-family · font-size · font-weight · letter-spacing</h3>
+      <div class="demo-body">
+        <p class="txt-demo-1">Texto con Georgia, 1.3rem, bold y letter-spacing.</p>
+        <div class="code">font-family: Georgia, serif;
+font-size: 1.3rem;
+font-weight: 700;
+letter-spacing: .05em;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>font-style · line-height</h3>
+      <div class="demo-body">
+        <p class="txt-demo-2">Este párrafo está en cursiva con line-height generoso para facilitar la lectura.</p>
+        <div class="code">font-style: italic;
+line-height: 1.9;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>text-align · text-decoration</h3>
+      <div class="demo-body">
+        <p class="txt-demo-3">Este texto tiene text-align: justify, lo que distribuye las palabras para ocupar todo el ancho disponible de la línea.</p>
+        <p style="margin-top:.75rem">
+          <span class="txt-demo-4">Precio anterior: $200</span>
+          <span class="txt-demo-5">Subrayado ondulado azul</span>
+        </p>
+        <div class="code">text-align: justify;
+text-decoration: line-through;
+text-decoration: underline wavy #3498db;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>text-transform · text-shadow · text-overflow · writing-mode</h3>
+      <div class="demo-body">
+        <div style="display:flex; gap:2rem; align-items:center; flex-wrap:wrap;">
+          <p class="txt-demo-6">texto en uppercase</p>
+          <p class="txt-demo-7">Sombra CSS</p>
+          <p class="txt-demo-8">Este texto es demasiado largo y se corta con puntos suspensivos</p>
+          <p class="txt-demo-9">Texto vertical</p>
+        </div>
+        <div class="code">text-transform: uppercase;
+text-shadow: 2px 2px 0 #c9a96e;
+text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+writing-mode: vertical-rl;</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 2. COLOR Y FONDO ════════════ -->
+  <section id="color">
+    <h2>Color y fondo <span class="badge">16 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>background-color · background (gradiente) · background-image pattern</h3>
+      <div class="demo-body">
+        <div class="bg-grid">
+          <div class="bg-box bg-solid">background-color</div>
+          <div class="bg-box bg-gradient">linear-gradient</div>
+          <div class="bg-box bg-img">background-image pattern</div>
+        </div>
+        <div class="code">background-color: #3498db;
+background: linear-gradient(135deg, #667eea, #764ba2);
+background-image: repeating-linear-gradient(...);</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>filter · opacity · background-blend-mode</h3>
+      <div class="demo-body">
+        <div class="bg-grid">
+          <div class="bg-box bg-filter">filter: saturate(0.3)</div>
+          <div class="bg-box bg-opacity">opacity: 0.4</div>
+          <div class="bg-box bg-blend">blend-mode: multiply</div>
+        </div>
+        <div class="code">filter: saturate(0.3) brightness(1.2);
+opacity: 0.4;
+background-blend-mode: multiply;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>backdrop-filter · color</h3>
+      <div class="demo-body">
+        <div style="background: linear-gradient(135deg,#667eea,#764ba2); padding: 1.5rem; border-radius:8px; position:relative; height:100px; display:flex; align-items:center; justify-content:center;">
+          <div style="backdrop-filter: blur(8px); background: rgba(255,255,255,.15); padding: .6rem 1.2rem; border-radius:8px; color:#fff; font-weight:500; font-size:14px; border:1px solid rgba(255,255,255,.3);">
+            backdrop-filter: blur(8px)
+          </div>
+        </div>
+        <div class="code">backdrop-filter: blur(8px);
+background: rgba(255,255,255,.15);</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 3. BOX MODEL ════════════ -->
+  <section id="boxmodel">
+    <h2>Caja (Box model) <span class="badge">30 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>width · height · padding · margin · box-sizing</h3>
+      <div class="demo-body">
+        <div class="box-demo">
+          <div class="box-a">sin padding<br>120×80px</div>
+          <div class="box-b">padding: 12px<br>box-sizing:<br>border-box</div>
+          <div style="background:#f0f0f0; padding:4px; display:inline-block; border-radius:4px;">
+            <div class="box-c">margin: 12px</div>
+          </div>
+        </div>
+        <div class="code">width: 120px; height: 80px;
+padding: 12px; box-sizing: border-box;
+margin: 12px;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>border · border-radius · box-shadow · overflow</h3>
+      <div class="demo-body">
+        <div class="box-demo">
+          <div class="box-border">border dashed + border-radius</div>
+          <div class="box-shadow-demo">box-shadow multicapa</div>
+          <div class="box-overflow">overflow: hidden — este texto es demasiado largo y se corta porque el contenedor es pequeño y el desbordamiento está oculto.</div>
+        </div>
+        <div class="code">border: 3px dashed #e74c3c;
+border-radius: 12px;
+box-shadow: 0 8px 24px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.8);
+overflow: hidden;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>outline · outline-offset</h3>
+      <div class="demo-body">
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <button style="padding:.5rem 1rem; background:#3498db; color:#fff; border:none; border-radius:5px; cursor:pointer; outline: 3px solid #e74c3c; outline-offset: 4px;">outline + offset</button>
+          <button style="padding:.5rem 1rem; background:#2ecc71; color:#fff; border:none; border-radius:5px; cursor:pointer; outline: 2px dashed #27ae60; outline-offset: 2px;">outline dashed</button>
+        </div>
+        <div class="code">outline: 3px solid #e74c3c;
+outline-offset: 4px;</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 4. FLEXBOX ════════════ -->
+  <section id="flexbox">
+    <h2>Flexbox <span class="badge">16 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>justify-content: space-between · align-items: center</h3>
+      <div class="demo-body">
+        <div class="flex-container flex-between">
+          <div class="flex-item">Logo</div>
+          <div class="flex-item">Nav</div>
+          <div class="flex-item">CTA</div>
+        </div>
+        <div class="code">display: flex;
+justify-content: space-between;
+align-items: center;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>flex-grow · flex-shrink · flex-basis</h3>
+      <div class="demo-body">
+        <div class="flex-container flex-grow-demo">
+          <div class="flex-item">fijo</div>
+          <div class="flex-item">flex-grow: 1 (crece)</div>
+          <div class="flex-item">fijo</div>
+        </div>
+        <div class="code">/* Al hijo del medio */
+flex-grow: 1;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>flex-wrap · gap · justify-content: center</h3>
+      <div class="demo-body">
+        <div class="flex-container flex-wrap-demo">
+          <div class="flex-item">A</div>
+          <div class="flex-item">B</div>
+          <div class="flex-item">C</div>
+          <div class="flex-item">D</div>
+          <div class="flex-item">E</div>
+        </div>
+        <div class="code">display: flex;
+flex-wrap: wrap;
+gap: 8px;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>order · align-self</h3>
+      <div class="demo-body">
+        <div class="flex-container" style="align-items: flex-start; height: 100px;">
+          <div class="flex-item" style="order:3; align-self:flex-end;">order:3 end</div>
+          <div class="flex-item" style="order:1;">order:1 start</div>
+          <div class="flex-item" style="order:2; align-self:center;">order:2 center</div>
+        </div>
+        <div class="code">/* Cambia el orden visual sin tocar el HTML */
+order: 1; align-self: flex-end;</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 5. GRID ════════════ -->
+  <section id="grid">
+    <h2>Grid <span class="badge">15 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>grid-template-columns · gap · grid-column (span)</h3>
+      <div class="demo-body">
+        <div class="grid-base">
+          <div class="grid-cell grid-span">grid-column: 1 / 3</div>
+          <div class="grid-cell">celda</div>
+          <div class="grid-cell">celda</div>
+          <div class="grid-cell">celda</div>
+          <div class="grid-cell">celda</div>
+        </div>
+        <div class="code">grid-template-columns: repeat(3, 1fr);
+gap: 8px;
+/* en el hijo: */
+grid-column: 1 / 3;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>grid-template-areas · grid-area</h3>
+      <div class="demo-body">
+        <div class="grid-areas-demo">
+          <div class="g-hdr">header</div>
+          <div class="g-sdb">sidebar</div>
+          <div class="g-cnt">content</div>
+          <div class="g-ftr">footer</div>
+        </div>
+        <div class="code">grid-template-areas:
+  "hdr hdr"
+  "sdb cnt"
+  "ftr ftr";
+/* en los hijos: grid-area: hdr / sdb / cnt / ftr */</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>grid-auto-rows · minmax</h3>
+      <div class="demo-body">
+        <div style="display:grid; grid-template-columns: repeat(4,1fr); grid-auto-rows: minmax(50px, auto); gap: 6px;">
+          <div class="grid-cell">A</div>
+          <div class="grid-cell" style="grid-row: span 2; background:#a5d6a7;">B<br>span 2</div>
+          <div class="grid-cell">C</div>
+          <div class="grid-cell">D</div>
+          <div class="grid-cell">E</div>
+          <div class="grid-cell">F</div>
+          <div class="grid-cell">G</div>
+        </div>
+        <div class="code">grid-auto-rows: minmax(50px, auto);
+/* en el hijo: */
+grid-row: span 2;</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 6. POSICIONAMIENTO ════════════ -->
+  <section id="posicion">
+    <h2>Posicionamiento <span class="badge">17 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>static · relative · absolute · z-index</h3>
+      <div class="demo-body">
+        <div class="pos-container">
+          <span class="pos-static">static</span>
+          <span class="pos-rel">relative (top:10 left:20)</span>
+          <span class="pos-abs">absolute (bottom:10 right:10)</span>
+          <span class="pos-z">z-index: 2</span>
+          <span class="pos-z2">z-index: 1</span>
+        </div>
+        <div class="code">position: relative; top: 10px; left: 20px;
+position: absolute; bottom: 10px; right: 10px;
+z-index: 2;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>transform: rotate · scale · skew · translate</h3>
+      <div class="demo-body">
+        <div class="transform-demo">
+          <div><div class="tr-box">normal</div></div>
+          <div><div class="tr-box tr-rotate">rotate(20deg)</div></div>
+          <div><div class="tr-box tr-scale">scale(1.3)</div></div>
+          <div><div class="tr-box tr-skew">skewX(15deg)</div></div>
+          <div><div class="tr-box tr-translate">translate(10, -10)</div></div>
+        </div>
+        <div class="code">transform: rotate(20deg);
+transform: scale(1.3);
+transform: skewX(15deg);
+transform: translate(10px, -10px);</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>clip-path · visibility</h3>
+      <div class="demo-body">
+        <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;">
+          <div style="width:80px;height:80px;background:#3498db;clip-path:polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+          <div style="width:80px;height:80px;background:#e74c3c;clip-path:circle(50%);"></div>
+          <div style="width:80px;height:80px;background:#2ecc71;clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);"></div>
+          <div style="display:flex;align-items:center;gap:.5rem;font-size:13px;">
+            <span style="visibility:visible;background:#9b59b6;color:#fff;padding:4px 8px;border-radius:4px;">visible</span>
+            <span style="visibility:hidden;background:#9b59b6;color:#fff;padding:4px 8px;border-radius:4px;">hidden (ocupa espacio)</span>
+          </div>
+        </div>
+        <div class="code">clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+clip-path: circle(50%);
+visibility: hidden;</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 7. ANIMACIÓN ════════════ -->
+  <section id="animacion">
+    <h2>Animación y transición <span class="badge">16 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>@keyframes · animation (girar · pulsar · deslizar · colorear)</h3>
+      <div class="demo-body">
+        <div class="anim-grid">
+          <div>
+            <div class="anim-box anim-girar">rotate</div>
+            <p style="font-size:11px;color:#999;margin-top:4px;text-align:center">girar</p>
+          </div>
+          <div>
+            <div class="anim-box anim-pulsar">scale</div>
+            <p style="font-size:11px;color:#999;margin-top:4px;text-align:center">pulsar</p>
+          </div>
+          <div>
+            <div class="anim-box anim-deslizar">slide in</div>
+            <p style="font-size:11px;color:#999;margin-top:4px;text-align:center">deslizar</p>
+          </div>
+          <div>
+            <div class="anim-box anim-colorear">color</div>
+            <p style="font-size:11px;color:#999;margin-top:4px;text-align:center">colorear</p>
+          </div>
+        </div>
+        <div class="code">@keyframes girar { to { transform: rotate(360deg); } }
+animation: girar 2s linear infinite;
+
+@keyframes pulsar { 50% { transform: scale(1.2); } }
+animation: pulsar 1s ease-in-out infinite;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>transition — hover para activar</h3>
+      <div class="demo-body">
+        <div class="trans-demo">
+          <button class="trans-btn trans-bg">color (.3s ease)</button>
+          <button class="trans-btn trans-size">scale + shadow</button>
+          <button class="trans-btn trans-all">cubic-bezier spring</button>
+        </div>
+        <div class="code">transition: background .3s ease;
+transition: transform .2s ease, box-shadow .2s ease;
+transition: all .3s cubic-bezier(.34, 1.56, .64, 1);</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 8. TABLAS ════════════ -->
+  <section id="tablas">
+    <h2>Tablas <span class="badge">6 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>border-collapse: collapse · vertical-align · caption-side</h3>
+      <div class="demo-body">
+        <table class="tabla-demo">
+          <caption>Lista de productos</caption>
+          <thead>
+            <tr><th>Producto</th><th>Precio</th><th>Stock</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Laptop Pro</td><td>$1,200</td><td style="vertical-align:middle">✔ disponible</td></tr>
+            <tr><td>Monitor 4K</td><td>$450</td><td>✔ disponible</td></tr>
+            <tr><td>Teclado mecánico</td><td>$120</td><td style="color:#e74c3c">✘ agotado</td></tr>
+          </tbody>
+        </table>
+        <div class="code">border-collapse: collapse;
+caption-side: top;
+vertical-align: middle;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>border-collapse: separate · border-spacing · table-layout: fixed</h3>
+      <div class="demo-body">
+        <table class="tabla-separated">
+          <thead>
+            <tr><th>Nombre</th><th>Rol</th><th>Dpto.</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ana García</td><td>Dev</td><td>Tecnología</td></tr>
+            <tr><td>Luis Pérez</td><td>PM</td><td>Producto</td></tr>
+          </tbody>
+        </table>
+        <div class="code">border-collapse: separate;
+border-spacing: 6px;
+table-layout: fixed;</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 9. LISTAS ════════════ -->
+  <section id="listas">
+    <h2>Listas <span class="badge">7 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>list-style-type variantes</h3>
+      <div class="demo-body">
+        <div class="listas-grid">
+          <div class="lista-box">
+            <h4>disc</h4>
+            <ul class="lst-disc"><li>Manzana</li><li>Naranja</li><li>Uva</li></ul>
+          </div>
+          <div class="lista-box">
+            <h4>square</h4>
+            <ul class="lst-square"><li>CSS</li><li>HTML</li><li>JS</li></ul>
+          </div>
+          <div class="lista-box">
+            <h4>decimal</h4>
+            <ol class="lst-decimal"><li>Primero</li><li>Segundo</li><li>Tercero</li></ol>
+          </div>
+          <div class="lista-box">
+            <h4>lower-alpha</h4>
+            <ol class="lst-alpha"><li>Paso A</li><li>Paso B</li><li>Paso C</li></ol>
+          </div>
+          <div class="lista-box">
+            <h4>upper-roman</h4>
+            <ol class="lst-roman"><li>Fase I</li><li>Fase II</li><li>Fase III</li></ol>
+          </div>
+          <div class="lista-box">
+            <h4>none + ::before</h4>
+            <ul class="lst-none"><li>Diseño</li><li>Desarrollo</li><li>Pruebas</li></ul>
+          </div>
+        </div>
+        <div class="code">list-style-type: square;
+list-style-type: lower-alpha;
+/* con ::before personalizado */
+content: "→ ";</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>counter-reset · counter-increment · content</h3>
+      <div class="demo-body">
+        <ol class="lst-counter">
+          <li>Planificación del proyecto</li>
+          <li>Diseño de la interfaz</li>
+          <li>Desarrollo y pruebas</li>
+          <li>Despliegue en producción</li>
+        </ol>
+        <div class="code">counter-reset: mi-lista;
+counter-increment: mi-lista;
+content: counter(mi-lista);</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════ 10. UI E INTERACCIÓN ════════════ -->
+  <section id="ui">
+    <h2>UI e interacción <span class="badge">12 propiedades</span></h2>
+
+    <div class="demo-card">
+      <h3>cursor</h3>
+      <div class="demo-body">
+        <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
+          <span class="cursor-hand">pointer</span>
+          <span class="cursor-cross">crosshair</span>
+          <span class="cursor-help">help</span>
+          <span style="cursor:not-allowed; background:#ccc; color:#666; padding:.4rem .9rem; border-radius:5px; display:inline-block;">not-allowed</span>
+          <span style="cursor:zoom-in; background:#f39c12; color:#fff; padding:.4rem .9rem; border-radius:5px; display:inline-block;">zoom-in</span>
+        </div>
+        <div class="code">cursor: pointer;
+cursor: crosshair;
+cursor: not-allowed;
+cursor: zoom-in;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>user-select · resize · pointer-events</h3>
+      <div class="demo-body">
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-start;">
+          <span class="no-select">No se puede seleccionar</span>
+          <div class="resize-box">Arrastra la esquina inferior derecha para redimensionar ↘</div>
+          <span style="pointer-events:none; background:#e74c3c; color:#fff; padding:.4rem .9rem; border-radius:5px; opacity:.5; cursor:default;">pointer-events: none</span>
+        </div>
+        <div class="code">user-select: none;
+resize: both; overflow: auto;
+pointer-events: none;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>accent-color · caret-color · scroll-behavior</h3>
+      <div class="demo-body">
+        <div class="accent-input">
+          <label style="font-size:13px;"><input type="checkbox" checked /> accent-color: rojo</label>
+          <label style="font-size:13px;"><input type="radio" name="r" checked /> opción A</label>
+          <label style="font-size:13px;"><input type="radio" name="r" /> opción B</label>
+          <input type="range" min="0" max="100" value="60" style="accent-color:#e74c3c; width:120px;" />
+        </div>
+        <p style="font-size:13px; margin-top:.75rem; color:#666;">Haz clic en el input — el cursor es rojo:</p>
+        <input class="caret-input" type="text" placeholder="caret-color: red al escribir..." />
+        <div class="code">accent-color: #e74c3c;
+caret-color: #e74c3c;
+scroll-behavior: smooth;</div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <h3>scroll-snap-type · scroll-snap-align</h3>
+      <div class="demo-body">
+        <div style="display:flex; gap:0; overflow-x:auto; scroll-snap-type: x mandatory; border-radius:8px; border:1px solid #ddd; width:100%;">
+          <div style="flex:0 0 100%; scroll-snap-align:start; background:#3498db; color:#fff; height:100px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; font-weight:600;">Slide 1</div>
+          <div style="flex:0 0 100%; scroll-snap-align:start; background:#e74c3c; color:#fff; height:100px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; font-weight:600;">Slide 2</div>
+          <div style="flex:0 0 100%; scroll-snap-align:start; background:#2ecc71; color:#fff; height:100px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; font-weight:600;">Slide 3</div>
+        </div>
+        <p style="font-size:12px;color:#999;margin-top:.4rem;">← Desliza horizontalmente →</p>
+        <div class="code">scroll-snap-type: x mandatory;
+/* en los hijos: */
+scroll-snap-align: start;</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  CSS Reference · 100 propiedades · 10 categorías
+</footer>
+
+<script>
+  const links = document.querySelectorAll('.sidebar a');
+  const sections = document.querySelectorAll('section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
