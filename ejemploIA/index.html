@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú Responsive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="header">
+    <nav class="navbar">
+      <a href="#" class="logo">SØREN</a>
+
+      <!-- Botón hamburguesa (solo visible en móvil) -->
+      <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <!-- Menú de navegación -->
+      <ul class="nav-menu" id="navMenu" role="menu">
+        <li><a href="#" class="nav-link">Inicio</a></li>
+        <li><a href="#" class="nav-link">Nosotros</a></li>
+        <li><a href="#" class="nav-link">Servicios</a></li>
+        <li><a href="#" class="nav-link">Portafolio</a></li>
+        <li><a href="#" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Overlay oscuro para cerrar el menú -->
+    <div class="overlay" id="overlay"></div>
+  </header>
+
+  <!-- Contenido de ejemplo -->
+  <main class="hero">
+    <p class="hero__label">Diseño · Estrategia · Código</p>
+    <h1 class="hero__title">Creamos<br /><em>experiencias</em><br />que perduran.</h1>
+    <p class="hero__sub">Redimensiona la ventana para ver el menú responsive en acción.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

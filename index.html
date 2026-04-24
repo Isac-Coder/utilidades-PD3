@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img class="img-b-aside" src="image.png" alt="Daniel Elias Alvarez Diaz" onclick="mostrarMenu()">
+
+    <aside id="aside">
+        <p>Inicio</p>
+        <p>Servicios</p>
+        <p>Contacto</p>
+    </aside>
+    <script>
+    function mostrarMenu() {
+    
+    let menu = document.getElementById("aside");
+
+    if (menu.style.display === "none") {
+        menu.style.display = "flex";
+        menu.style.position = "fixed";
+        menu.style.top = "0";
+        menu.style.padding = "30px 40px";
+        menu.style.flexDirection = "column";
+    } else {
+        menu.style.display = "none";
+    }
+}
+    </script>
+</body>
+
+<style>
+    .img-b-aside{
+    display: none;
+}
+
+/*aside*/
+
+#aside{
+    background-color: white;
+    max-height: calc(100vh);
+    overflow-y: auto;
+    z-index: 10;
+}
+
+@media (min-width: 1000px){
+
+    #aside{
+    background-color: white;
+    width: 17%;
+    padding: 30px 40px;
+    position: sticky;
+    top: 0;
+    max-height: calc(100vh);
+
+    
+    overflow-y: auto;
+    z-index: 10;
+}
+}
+@media (max-width: 1000px){
+
+    #aside{
+        display: none;
+        width: 30%;
+        
+    }
+
+    .img-b-aside{
+        display:  flex;
+        width: 40px;
+        height: 50px;
+        border-radius: 50%;
+        position: fixed;
+        top: 10px;
+        right: 7px;
+        z-index: 20;
+        
+    }
+
+}
+</style>
+</html>

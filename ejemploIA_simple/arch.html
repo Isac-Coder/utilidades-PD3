@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Desplegable</title>
+  <style>
+    .menu-contenido {
+      display: none;
+      background: #eee;
+      padding: 10px;
+      width: 150px;
+    }
+
+    .menu-btn {
+      padding: 10px;
+      background: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<button class="menu-btn" onclick="mostrarMenu()">Menú</button>
+
+<div id="menu" class="menu-contenido">
+  <p>Inicio</p>
+  <p>Servicios</p>
+  <p>Contacto</p>
+</div>
+
+<script>
+  function mostrarMenu() {
+    
+    let menu = document.getElementById("menu");
+
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+  }
+</script> 
+
+</body>
+</html>
